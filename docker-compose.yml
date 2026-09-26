@@ -1,0 +1,19 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: nestjs-boilerplate
+    ports:
+      - "4000:3000"
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+    volumes:
+      - .:/app
+      - nestjs_node_modules:/app/node_modules
+    command: npm run start:dev
+
+volumes:
+  nestjs_node_modules:

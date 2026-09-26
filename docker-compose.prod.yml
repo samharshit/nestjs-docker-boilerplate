@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: nestjs-boilerplate-prod
+    ports:
+      - "4000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    restart: unless-stopped
